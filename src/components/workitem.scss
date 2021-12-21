@@ -1,0 +1,11 @@
+.work-item{
+  margin-bottom: 15px;
+  .MuiPaper-root{
+    display: flex;
+    justify-content: space-between;
+  }
+  .work-item-action{
+    display: flex;
+    align-items: center;
+  }
+}

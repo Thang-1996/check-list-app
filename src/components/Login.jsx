@@ -3,36 +3,16 @@ import React from "react"
 import "./login.scss"
 import BackgroundImage from "../assets/images/background.png"
 import {Button, FormControl, TextField, Typography} from "@mui/material";
-
+import GoogleIcon from '@mui/icons-material/Google';
 const Login = () => {
     return (
         <div className="cover-mobile" style={{ backgroundImage : `url(${BackgroundImage})`}}>
             <div className="login-page" style={{ backgroundImage : `url(${BackgroundImage})`}}>
                 <div className="login-form">
                     <FormControl className="form">
-                        <span className="welcome-text">Welcome Friend</span>
-                        <TextField
-                            label="Email"
-                            id="email"
-                            fullWidth
-                            type="text"
-                            autoComplete="off"
-                            color="secondary"
-                        />
-                        <TextField
-                            color="secondary"
-                            label="Password"
-                            id="password"
-                            fullWidth
-                            type="password"
-                            autoComplete="off"
-                        />
-
-                        <Button className="login-normal" type="button" color="secondary" variant="outlined">
-                            Sign in
-                        </Button>
-                        <Button className="login-with-google" type="button" color="secondary" variant="outlined" onClick={signInWithGoogle}>
-                            Sign in with Google
+                        <span className="welcome-text">Routine Manager</span>
+                        <Button className="login-with-google" type="button" color="warning" variant="outlined" onClick={signInWithGoogle}>
+                            <GoogleIcon/>   <span style={{ marginLeft : '10px'}}>Sign in with Google</span>
                         </Button>
                     </FormControl>
                 </div>

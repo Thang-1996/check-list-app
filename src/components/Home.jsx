@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {auth} from '../services/firebase'
 import "./home.scss"
@@ -6,13 +6,11 @@ import BackgroundImage from "../assets/images/background-home.png"
 import {
     AppBar,
     Box,
-    Button,
     IconButton,
     SpeedDial,
     SpeedDialAction,
-    SpeedDialIcon, TextField,
+    SpeedDialIcon,
     Toolbar,
-    Typography
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -28,7 +26,6 @@ const Home = ({ user }) => {
         { icon: <ShareIcon />, name: 'Share' },
     ];
 
-    console.log('user', user)
     return (
         <div className="cover-mobile-home" style={{ backgroundImage : `url(${BackgroundImage})`}}>
             <div className="home-page" style={{ backgroundImage : `url(${BackgroundImage})`}}>
@@ -47,12 +44,12 @@ const Home = ({ user }) => {
                             <span className="menu-title">Daily Routine</span>
                             {!user ? "Login" : <div className="text-left">
                                 <img src={user?.photoURL} alt=""/>
-                                <LogoutIcon/>
+                                <LogoutIcon onClick={() => auth.signOut()}/>
                             </div>}
                         </Toolbar>
                     </AppBar>
                     <div style={{ padding : '15px 20px', marginTop : '20px'}}>
-                        <AddWork/>
+                        <AddWork user={user} />
                         <ListWork/>
                     </div>
 

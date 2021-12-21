@@ -1,5 +1,6 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
+import { getDatabase, ref, set, onValue, update, remove } from "firebase/database";
 
 const firebaseConfig = {
     apiKey: "AIzaSyC2A2VjZw_7077PVYa92jabi5pg0QwcfBM",
@@ -20,4 +21,10 @@ const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: 'select_account' });
 
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
+export const database = getDatabase();
+export const refDatabase = ref;
+export const setDatabase = set;
+export const getValue = onValue;
+export const updateDoc = update;
+export const removeDoc = remove;
 export default firebase;
